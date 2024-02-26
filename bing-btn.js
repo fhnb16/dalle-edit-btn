@@ -39,7 +39,7 @@ function start() {
         editButton.classList.add("action");
         editButton.classList.add("share");
         var tempUrl = window.location.href;
-        tempUrl = tempUrl.replace("&ajaxhist=0&ajaxserp=0", "&edit=1&clientName=BING+CHAT&sappdirectload=1&showselective=1&FORM=SYDBIC");
+        tempUrl = tempUrl + "&edit=1&clientName=BING+CHAT&sappdirectload=1&showselective=1&FORM=SYDBIC";
         editButton.href = tempUrl;
 
 
