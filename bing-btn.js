@@ -12,14 +12,25 @@
 (function() {
     'use strict';
 
-    setTimeout(start, 3000);
+const targetClass = "detailMeta";
+
+const observer = new MutationObserver(checkForElement);
+
+function checkForElement() {
+    const element = document.querySelector("#" + targetClass);
+    if (element) {
+        // Элемент найден, запускаем скрипт
+        start();
+        observer.disconnect();
+    }
+}
+
+observer.observe(document.body, { childList: true, subtree: true });
 
 function start() {
 
     if (
-        window.location.href.includes("https://www.bing.com/images/create/") &&
-        window.location.href.includes("idpp=genimg") &&
-        window.location.href.includes("ajaxhist=0&ajaxserp=0")
+        window.location.href.includes("https://www.bing.com/images/create/")
     ) {
 
         var editButton = document.createElement("a");
